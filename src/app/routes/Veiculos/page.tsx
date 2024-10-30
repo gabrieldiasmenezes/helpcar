@@ -1,6 +1,6 @@
 'use client';
 import Link from "next/link";
-import { useRef, useState } from "react";
+import {  useState } from "react";
 import styles from '@/estiliacao/Veiculos.module.css';
 
 type VeiculoProps = {
