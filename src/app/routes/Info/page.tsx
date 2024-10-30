@@ -69,10 +69,9 @@ export default function Informacao() {
                 </p>
             </section>
             <section className={styles.Info4}>
-                <h1 className={styles.t4}>Mecânico Delivery</h1>
+                <h1 className={styles.t4}>Autodiagnóstico</h1>
                 <p className={styles.p8}>
-                    Nossa função aqui é ajudar nossos clientes de qualquer lugar, caso o veículo não consiga se locomover para uma oficina, temos essa funcionalidade para falarmos com a mecânica mais próxima para levar um mecânico até o local que o usuário se localiza.
-                    Caso o problema do usuário precise de um guincho, ele será chamado e, caso o cliente não esteja em sua residência, proporcionaremos uma opção que chame um motorista que o leve à sua residência.
+                    Nosso principal objetivo é resolver seus problemas agilizando o seu tempo,o autodiagnóstico será a sua salvação para os seus prooblemas automotivos apenas falando com o nosso chatbot.Ele fará perguntas rápidas e diretas e te dará algumas possiveis causas e possiveis soluções para resolvê-los.
                 </p>
             </section>
             <section className={styles.Info5}>
