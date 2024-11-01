@@ -1,8 +1,8 @@
 'use client'
 import Link from "next/link";
 import styles from "@/estiliacao/Dados.module.css"
-import { useEffect, useState } from "react";
-
+import { useState } from "react";
+import ChatBot from "@/app/chatbot"
 
 export default function Dados() {
     const [mostraMenu, setMostraMenu] = useState(false);
@@ -14,23 +14,7 @@ export default function Dados() {
     const fecharM = () => {
         setMostraMenu(false);
     }
-    useEffect(() => {
-        window.watsonAssistantChatOptions = {
-          integrationID: "d9e8d383-5b1f-4852-8cd9-d04a58c9fb25", // The ID of this integration.
-          region: "us-south", // The region your integration is hosted in.
-          serviceInstanceID: "101833fd-0f14-4141-b131-7bf1dfb686d5", // The ID of your service instance.
-          onLoad: async (instance) => { await instance.render(); }
-        };
     
-        const script = document.createElement('script');
-        script.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
-        document.head.appendChild(script);
-    
-        return () => {
-          // Limpeza do script se necessário
-          document.head.removeChild(script);
-        };
-      }, []);
     
 
     return (
@@ -69,6 +53,7 @@ export default function Dados() {
                     </ul>
                 </section>
             </div>
+            <ChatBot/>
         </>
     );
 }
