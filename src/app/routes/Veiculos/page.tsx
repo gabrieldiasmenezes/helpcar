@@ -1,6 +1,6 @@
 'use client';
 import Link from "next/link";
-import {  useState } from "react";
+import {  useEffect, useState } from "react";
 import styles from '@/estiliacao/Veiculos.module.css';
 
 type VeiculoProps = {
@@ -13,6 +13,7 @@ type VeiculoProps = {
     segmento: string,
     tipo_comb: string
 };
+
 
 export default function Veiculos() {
     const [mostraMenu, setMostraMenu] = useState(false);
@@ -46,6 +47,23 @@ export default function Veiculos() {
         setVeiculos([...veiculos, veiculo]);
         setVeiculo(dadosVec);
     };
+    useEffect(() => {
+        window.watsonAssistantChatOptions = {
+          integrationID: "d9e8d383-5b1f-4852-8cd9-d04a58c9fb25", // The ID of this integration.
+          region: "us-south", // The region your integration is hosted in.
+          serviceInstanceID: "101833fd-0f14-4141-b131-7bf1dfb686d5", // The ID of your service instance.
+          onLoad: async (instance) => { await instance.render(); }
+        };
+    
+        const script = document.createElement('script');
+        script.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+        document.head.appendChild(script);
+    
+        return () => {
+          // Limpeza do script se necessário
+          document.head.removeChild(script);
+        };
+      }, []);
 
     return (
         <>

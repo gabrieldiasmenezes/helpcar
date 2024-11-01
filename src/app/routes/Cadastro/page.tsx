@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from '@/estiliacao/Cadastro.module.css'; 
 import React from 'react';
 
