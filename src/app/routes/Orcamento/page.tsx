@@ -45,7 +45,7 @@ export default function Dados() {
                 </section>
                 )}
                 <section className={styles.box1}>
-                    <h1 className={styles.T1}>Seus Dados</h1>
+                    <h1 className={styles.T1}>Faça seu orçamento</h1>
                     <form className={styles.listaDados}>
                         <input type="text" className={styles.li} placeholder="Digite um valor para o seu orçamento" required />
                         <input type="text" className={styles.li} placeholder="Digite um serviço de preferência" required />
