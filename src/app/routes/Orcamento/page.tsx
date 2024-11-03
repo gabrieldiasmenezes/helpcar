@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link";
-import styles from "@/estiliacao/Dados.module.css"
+import styles from "@/estiliacao/Orc.module.css"
 import { useState } from "react";
 import ChatBot from "@/app/chatbot"
 
@@ -46,16 +46,11 @@ export default function Dados() {
                 )}
                 <section className={styles.box1}>
                     <h1 className={styles.T1}>Seus Dados</h1>
-                    <ul className={styles.listaDados}>
-                        <li className={styles.li}>Nome</li>
-                        <li className={styles.li}>Email</li>
-                        <li className={styles.li}>CEP</li>
-                        <li className={styles.li}>Rua</li>
-                        <li className={styles.li}>Numero</li>
-                        <li className={styles.li}>Cidade</li>
-                        <li className={styles.li}>Estado</li>
-                        <li className={styles.li}>******</li>
-                    </ul>
+                    <form className={styles.listaDados}>
+                        <input type="text" className={styles.li} placeholder="Digite um valor para o seu orçamento" required />
+                        <input type="text" className={styles.li} placeholder="Digite um serviço de preferência" required />
+                        <button className={styles.button}>Calcule o orçamento</button>
+                    </form>
                 </section>
             </div>
             <ChatBot/>

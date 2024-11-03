@@ -52,11 +52,14 @@ export default function Veiculos() {
     return (
         <>
             <div className={styles.Usu}>
-                <section className={styles.Menu}>
+            <section className={`${styles.MenuM} ${styles.mostrar}`}>
+                    <button className={styles.Fechar} onClick={fecharM}>x</button>
                     <Link className={styles.link} href={'Usuario'}>Pagina do Usuario</Link>
-                    <Link className={styles.link} href={'Dados'}>Meus Dados</Link>
-                    <Link className={styles.link} href={'Veiculos'}>Meus Veículos</Link>
-                    <Link className={styles.link} href={'/'}>LogOut</Link>
+                <Link className={styles.link} href={'Dados'}>Meus Dados</Link>
+                <Link className={styles.link} href={'Veiculos'}>Meus Veículos</Link>
+                <Link className={styles.link} href={'Agendamento'}>Agendamento</Link>
+                <Link className={styles.link} href={'Orcamento'}>Orçamento</Link>
+                <Link className={styles.link} href={'/'}>LogOut</Link>    
                 </section>
                 
                 <ul onClick={mostrarM} className={styles.btMenu}>
