@@ -2,7 +2,7 @@
 import Link from "next/link";
 import {  useState } from "react";
 import styles from '@/estiliacao/QS.module.css'
-import ChatBot from "@/app/chatbot"
+
 export default function QuemSomos() {
     const [mostraMenu, setMostraMenu] = useState(false);
     const mostrarM = () => {
@@ -97,7 +97,7 @@ export default function QuemSomos() {
           <p className={styles.i1}>Chat Bot</p>
         </section>
       </footer>
-      <ChatBot/>
+
         </>
     );
 }

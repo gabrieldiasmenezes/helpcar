@@ -2,7 +2,7 @@
 import styles from "./page.module.css";
 import Link from "next/link";
 import { useState } from "react";
-import ChatBot from "./chatbot"
+
 export default function Home() {
   const [mostraMenu, setMostraMenu] = useState(false);
   
@@ -87,7 +87,6 @@ export default function Home() {
           <p className={styles.i1}>Chat Bot</p>
         </section>
       </footer>
-      <ChatBot/>
     </>
   );
 }

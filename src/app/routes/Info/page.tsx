@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import styles from '@/estiliacao/Informacoes.module.css'; // Importa o CSS Module
-import ChatBot from "@/app/chatbot";
+
 
 export default function Informacao() {
 
@@ -99,7 +99,7 @@ export default function Informacao() {
                     <p className={styles.i1}>Chat Bot</p>
                 </section>
             </footer>
-            <ChatBot/>
+
         </>
     );
 }
