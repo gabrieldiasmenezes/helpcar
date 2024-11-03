@@ -69,6 +69,7 @@ export default function Veiculos() {
                 
                 {mostraMenu && (
                     <section className={styles.Menu}>
+                        <button className={styles.Fechar} onClick={fecharM}>x</button>
                     <Link className={styles.link} href={'Usuario'}>Pagina do Usuario</Link>
                     <Link className={styles.link} href={'Dados'}>Meus Dados</Link>
                     <Link className={styles.link} href={'Veiculos'}>Meus Veículos</Link>
