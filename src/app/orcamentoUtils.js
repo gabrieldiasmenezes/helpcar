@@ -14,7 +14,7 @@ export const sugerirServicos = (valorMaximo) => {
     const maxVal = parseFloat(valorMaximo);
     if (!isNaN(maxVal)) {
         return Object.entries(servicosPrecos)
-            .filter(([_, preco]) => preco <= maxVal)
+            .filter(([,preco]) => preco <= maxVal)
             .map(([servico]) => servico);
     }
     return [];
