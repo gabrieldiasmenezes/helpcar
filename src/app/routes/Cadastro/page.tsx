@@ -8,12 +8,13 @@ type UsuarioProps = {
     nome: string;
     email: string;
     cpf: string;
+    telefone: string;
     cep: string;
     rua: string;
-    numero: string;
     bairro: string;
     cidade: string;
     estado: string;
+    idade: string;
     senha: string;
 };
 
@@ -21,32 +22,48 @@ export default function Cadastro() {
     const router = useRouter();
     const dadosUsuario = {
         nome: '',
-        cpf: '',
         email: '',
+        cpf: '',
+        telefone: '',
         cep: '',
         rua: '',
-        numero: '',
         bairro: '',
         cidade: '',
         estado: '',
+        idade: '',
         senha: ''
     };
 
     const [usuario, setUsuario] = useState<UsuarioProps>(dadosUsuario);
-    const [usuarios, setUsuarios] = useState<UsuarioProps[]>([]);
 
     const digUsuario = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setUsuario({ ...usuario, [name]: value });
     };
 
-    const cadUsuario = (e: React.FormEvent<HTMLFormElement>) => {
+    const cadUsuario = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setUsuarios([...usuarios, usuario]);
-        setUsuario(dadosUsuario);
 
-        // Redireciona para a página "Usuario" após o cadastro
-        router.push("Usuario");
+        try {
+            const response = await fetch("http://localhost:8080/SPRINT4/rest/clientes", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(usuario)
+            });
+
+            if (response.ok) {
+                // Redireciona para a página "Usuario" após o cadastro com sucesso
+                router.push("Usuario");
+            } else {
+                console.error("Erro ao cadastrar usuário:", await response.text());
+                alert("Erro ao cadastrar o usuário. Verifique os dados e tente novamente.");
+            }
+        } catch (error) {
+            console.error("Erro de rede:", error);
+            alert("Erro de rede. Tente novamente mais tarde.");
+        }
     };
 
     const cepBlur = useRef<HTMLInputElement>(null);
@@ -88,6 +105,7 @@ export default function Cadastro() {
                         type="text"
                         onChange={digUsuario}
                         value={usuario.cpf}
+                        maxLength={11}
                         placeholder="CPF"
                         required
                     /><br />
@@ -98,6 +116,16 @@ export default function Cadastro() {
                         onChange={digUsuario}
                         value={usuario.email}
                         placeholder="Digite o seu email"
+                        required
+                    /><br />
+                    <input
+                        className={styles.input}
+                        name="telefone"
+                        type="text"
+                        onChange={digUsuario}
+                        value={usuario.telefone}
+                        maxLength={11}
+                        placeholder="Digite o seu telefone"
                         required
                     /><br />
                     <input
@@ -123,16 +151,6 @@ export default function Cadastro() {
                     /><br />
                     <input
                         className={styles.input}
-                        name="numero"
-                        type="text"
-                        maxLength={5}
-                        onChange={digUsuario}
-                        value={usuario.numero}
-                        placeholder="Número"
-                        required
-                    /><br />
-                    <input
-                        className={styles.input}
                         name="cidade"
                         type="text"
                         maxLength={50}
@@ -149,6 +167,15 @@ export default function Cadastro() {
                         onChange={digUsuario}
                         value={usuario.estado}
                         placeholder="Estado"
+                        required
+                    /><br />
+                    <input
+                        className={styles.input}
+                        name="idade"
+                        type="number"
+                        onChange={digUsuario}
+                        value={usuario.idade}
+                        placeholder="Digite sua idade"
                         required
                     /><br />
                     <input
